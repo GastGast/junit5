@@ -135,14 +135,14 @@ class ExtensionRegistrationViaParametersAndFieldsTests extends AbstractJupiterTe
 	void registrationOrder(LogRecordListener listener) {
 		assertOneTestSucceeded(AllInOneWithTestInstancePerMethodTestCase.class);
 		assertThat(getRegisteredExtensions(listener))//
-				.containsExactly("StaticField", "ConstructorParameter", "BeforeAllParameter", "AfterAllParameter",
-					"BeforeEachParameter", "AfterEachParameter", "TestParameter", "InstanceField");
+				.containsExactly("StaticField", "ConstructorParameter", "BeforeAllParameter", "BeforeEachParameter",
+					"AfterEachParameter", "AfterAllParameter", "TestParameter", "InstanceField");
 
 		listener.clear();
 		assertOneTestSucceeded(AllInOneWithTestInstancePerClassTestCase.class);
 		assertThat(getRegisteredExtensions(listener))//
-				.containsExactly("StaticField", "ConstructorParameter", "BeforeAllParameter", "AfterAllParameter",
-					"BeforeEachParameter", "AfterEachParameter", "InstanceField", "TestParameter");
+				.containsExactly("StaticField", "ConstructorParameter", "BeforeAllParameter", "BeforeEachParameter",
+					"AfterEachParameter", "AfterAllParameter", "InstanceField", "TestParameter");
 	}
 
 	private List<String> getRegisteredExtensions(LogRecordListener listener) {
